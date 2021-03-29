@@ -1,0 +1,121 @@
+<div>
+  <br>
+<div class="row" style="width: 100%;">
+   <div class="col" style="width: 20%; text-align-last: center;" >
+<img src="assets/images/logo.png" >
+
+
+   </div>
+
+      <div class="col" style="width: 60%;">
+        <div class="row"  style="  display: flex;justify-content: space-between; padding-top: 10%;">
+           <div>
+            <button  class="btn btn-outline-primary" [routerLink]="['']">Home</button>
+           </div>
+           <div>
+            <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle>Marcas</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownForm1" style="width: max-content;padding-right: 25px;">
+                    <form class="px-4 py-3 row">
+                      <div class="form-group ">
+                        <button ngbDropdownItem>505 Games</button>
+                        <button ngbDropdownItem>Activition </button>
+                        <button ngbDropdownItem>Nintendo</button>
+                        <button ngbDropdownItem>Paradox</button>
+                        <button ngbDropdownItem>Capcom</button>
+                        <button ngbDropdownItem>Something else here</button>
+                        <button ngbDropdownItem >Xbox</button>
+                        <button ngbDropdownItem>Humble</button>
+
+                      </div>
+                      <div class="form-group" style="padding-left: inherit;">
+                        <div class="row">
+
+                          <div *ngFor="let item of  lstProductosDropdown"  style="width: 14%;" >
+
+                             <div class="card" style="border: hidden;">
+                                  <img class="card-img-top" src="assets/images/dropdown1.png" alt="Card image cap">
+                                  <div class="card-body">
+                                   <div class="row">
+              <div class="col">
+                <strong>
+                  {{item.nombre}}
+                </strong>
+
+                <span>
+                  {{item.precio | currency}}
+                </span>
+              </div>
+              <div class="col">
+
+                <div>
+                  <button type="button" class="btn " style="background-color: #00a79c ; color: aliceblue;" (click)="addShop(item)">Comprar
+                    ahora</button>
+                </div>&nbsp;
+                <div class="row" style="justify-content: center;">
+                    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                        <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                        <path
+                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                      </svg></button>
+                    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path
+                          d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                      </svg></button>
+                    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                        <path
+                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                      </svg></button>
+                </div>
+
+
+              </div>
+                                   </div>
+                                   </div>
+                             </div>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </form>
+                  </div>
+             </div>
+           </div>
+           <div>
+                      <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+  <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Coleccionables</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownManual">
+    <button ngbDropdownItem>Action - 1</button>
+    <button ngbDropdownItem>Another Action</button>
+    <button ngbDropdownItem>Something else is here</button>
+  </div>
+                     </div>
+           </div>
+           <div>
+                        <button class="btn btn-outline-primary" >Blog</button>
+           </div>
+        </div>
+      </div>
+
+
+      <div class="col" style="width:  20%">
+        <div style="padding-top: 10%;" class=" d-flex flex-row-reverse" >
+              <button class="btn btn-outline-primary" [routerLink]="['/canasta']"> Carrito </button>
+        </div>
+
+      </div>
+
+</div>
+
+
+
+
+
+
+</div>

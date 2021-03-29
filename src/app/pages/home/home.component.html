@@ -1,0 +1,868 @@
+
+<app-header></app-header>
+
+
+
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/images/slice1.png" alt="Random first slide" style="width: 100%;">
+    </div>
+
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/images/slice2.png" alt="Random second slide" style="width: 100%;">
+    </div>
+
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/images/slice3.png" alt="Random third slide" style="width: 100%;">
+    </div>
+
+  </ng-template>
+</ngb-carousel>
+
+
+<br>
+<div class="container-principal">
+
+
+  <!-- Primer lst -->
+<div class="sub-content">
+
+<div *ngFor=" let item of lstPrimerosProductos">
+
+<div>
+  <div class="card" style="width: 80%;">
+    <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+    <div class="card-body">
+      <hr>
+      <div class="row">
+        <div class="col">
+          {{item.marca}}
+
+          <h3>
+            {{item.nombre}}
+          </h3>
+
+          <span>
+            {{item.precio | currency }}
+          </span>
+        </div>
+        <div class="col">
+
+
+
+          <div class="row" style="    justify-content: center;">
+            <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus"
+              viewBox="0 0 16 16">
+              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+              <path
+                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg></button>
+            <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+            </svg></button>
+            <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
+              viewBox="0 0 16 16">
+              <path
+                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+            </svg></button>
+          </div>
+          <br>
+          <div>
+            <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;"   (click)="addShop(item)">Comprar ahora</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+<br> <br>
+  <!-- Segunda lst group-->
+<div class="sub-content">
+
+  <div style="width: 30%;">
+
+     <div style="flex-direction: row;" >
+       Mas vendido
+       <nav aria-label="Page navigation example" style="    width: 75%;
+    align-items: flex-end;
+    display: inline-table;">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+       </nav>
+     </div>
+      <hr>
+
+     <div class="list-group" *ngFor="let item of lstProductosVendidos">
+  <div  class="list-group-item list-group-item-action flex-column align-items-start  ">
+    <div class="row">
+      <div class="col">
+        <img class="card-img-top" src={{item.imagen}} style="display: flex; width: 140px; height: 170px;">
+      </div>
+
+   <div class="col">
+      <br><br>
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{item.nombre}}</h5>
+
+        </div>
+        <span>{{item.precio | currency}}</span>
+
+          <br><br>
+    <div class="row" style="    justify-content: center;">
+          <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+              <path
+                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg></button>
+          <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path
+                d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+            </svg></button>
+          <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+              <path
+                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+            </svg></button>
+    </div>
+
+   </div>
+    </div>
+  </div>
+     </div>
+  </div>
+
+
+
+<div style="width: 30%;">
+  <div style="flex-direction: row;">
+    Nuevos Productos
+    <nav aria-label="Page navigation example" style="    width: 70%;
+      align-items: flex-end;
+      display: inline-table;">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+    <hr>
+    <div class="list-group" *ngFor="let item of lstProductosVendidos">
+      <div class="list-group-item list-group-item-action flex-column align-items-start  ">
+        <div class="row">
+          <div class="col">
+            <img class="card-img-top" src={{item.imagen}} style="display: flex; width: 140px; height: 170px;">
+          </div>
+
+          <div class="col">
+            <br><br>
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{item.nombre}}</h5>
+
+            </div>
+            <span>{{item.precio | currency}}</span>
+
+            <br><br>
+            <div class="row" style="    justify-content: center;">
+              <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                  <path
+                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg></button>
+              <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                  <path
+                    d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                </svg></button>
+              <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <path
+                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                </svg></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div style="width: 30%;">
+    <div style="flex-direction: row;">
+      Proximos lanzamientos
+      <nav aria-label="Page navigation example" style="    width: 62%;
+        align-items: flex-end;
+        display: inline-table;">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <hr>
+
+
+      <div class="list-group" *ngFor="let item of lstProductosVendidos">
+        <div class="list-group-item list-group-item-action flex-column align-items-start  ">
+          <div class="row">
+            <div class="col">
+              <img class="card-img-top" src={{item.imagen}} style="display: flex; width: 140px; height: 170px;">
+            </div>
+
+            <div class="col">
+              <br><br>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{item.nombre}}</h5>
+
+              </div>
+              <span>{{item.precio | currency}}</span>
+
+              <br><br>
+              <div class="row" style="    justify-content: center;">
+                <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                    <path
+                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                  </svg></button>
+                <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path
+                      d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                  </svg></button>
+                <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                    <path
+                      d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                  </svg></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>
+<br> <br>
+</div>
+
+  <!--  ofertas-->
+<div style="background-color: #8080806b; height: 800px; margin-left: 9%;">
+   <div class="container-principal" style="padding-top: 4%;     padding-left: 5%; padding-right: 11%;">
+      <div class="sub-content">
+
+
+        <div class="card" style="width: 100%;">
+
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col" style="padding-top: 5%;">
+                <div style="text-align-last: center;">
+                  {{oferta.marca}}
+                  <h3>{{oferta.nombre}}</h3>
+
+                  <span>
+                    {{oferta.precio | currency }}
+                  </span>
+                  <span style="text-decoration:line-through;">
+                    {{oferta.descuento | currency }}
+                  </span>
+                </div>
+
+                <section>
+                  <div class="coming-soon">
+                    <div class="time-countdown">
+                      <ul>
+                        <li class="count-bg-one radius"><span id="days">{{day}}</span>Dias</li>
+                        <li class="count-bg-two radius"><span id="hours">{{hours}}</span>Horas</li>
+                        <li class="count-bg-three radius"><span id="minutes">{{minutes}}</span>Minutos</li>
+                        <li class="count-bg-four radius"><span id="seconds">{{seconds}}</span>Segundos</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                <div class="row " style="justify-content: center;">
+                  <div>
+                    <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;" (click)="addShop(oferta)">Comprar
+                      ahora</button>
+                  </div>&nbsp;&nbsp;&nbsp;
+                  <div>
+    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+        <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+        <path
+          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+      </svg></button>
+    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+        <path
+          d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+      </svg></button>
+    <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+        fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+        <path
+          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+      </svg></button>
+                  </div>
+
+                </div>
+                <br>
+              </div>
+
+              <div class="col">
+                <img class="card-img-top" src="assets/images/cars.png" alt="Card image cap">
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+   </div>
+
+</div>
+
+
+
+
+<br> <br>
+<!-- Carrucel 1  -->
+<div  class="container-principal">
+<div class="sub-content">
+
+
+  <div class="card" style="width: 100%; border: hidden;">
+    <div class="card-body">
+
+
+      <div class="row" style="flex-direction: row;">
+        <div class="column" style="width: 30%;">
+
+          <div style="padding-top: 30%;">
+            <h2> Cloth Collection</h2>
+          </div>
+
+          <div style="padding-right:20%">
+            <span>
+              Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr, sed diam nonumy eirmod
+              tempor invidunt ut labore et dolore magna
+            </span>
+
+          </div>
+
+
+
+
+
+
+        </div>
+        <div class="column" style="width: 70%;">
+          <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s2">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn " style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                      <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg></button>
+                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path
+                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                    </svg></button>
+                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s3">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                      <path
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                      <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s1">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                      <path
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                      <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-carousel>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+</div>
+</div>
+
+<br> <br>
+<!-- Carrucel 2  -->
+
+<div style="background-color: #8080806b; height: 800px; margin-right: 9%;">
+  <div class="container-principal" style="padding-top: 4%;     padding-left: 11%; padding-right: 5%;">
+<div class="sub-content">
+
+
+  <div class="card" style="width: 100%; border: hidden; background-color: #80808000;">
+    <div class="card-body">
+
+
+      <div class="row" style="flex-direction: row;">
+
+        <div class="column" style="width: 70%;">
+          <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s1">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                      <path
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                      <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s2">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn" style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                      <path
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                      <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <div class="row">
+
+                  <div *ngFor="let item of lstProductoscardsp2s3">
+
+                    <div class="col">
+                      <div class="card">
+                        <img class="card-img-top" src={{item.imagen}} alt="Card image cap">
+                        <div class="card-body">
+                          <div class="row " style="justify-content: center;">
+                            <div>
+                              <button type="button" class="btn shadow-btn " style="background-color: #00a79c ; color: aliceblue;"
+                                (click)="addShop(item)">Comprar ahora</button>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                      <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                      <path
+                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg></button>
+                                  <button type="button" class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                      fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                      <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></button>
+                            </div>
+
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              {{item.marca}}
+                            </div>
+                            <div class="col">
+                              <small> -20%</small>
+                            </div>
+                          </div>
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <span>{{item.precio | currency}} </span>
+                            </div>
+                            <div class="col">
+                              <ngb-rating [rate]="4"></ngb-rating>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-carousel>
+
+        </div>
+        <div class="column" style="width: 30%;">
+
+          <div style="padding-top: 30%;">
+            <h2> Cloth Collection</h2>
+          </div>
+
+          <div style="padding-right:20%">
+
+              Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr, sed diam nonumy eirmod
+              tempor invidunt ut labore et dolore magna
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>
